@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Rock Paper Scissors Game</h1>
 
-    <button onclick="playGame('Rock')">Rock</button>
-    <button onclick="playGame('Paper')">Paper</button>
-    <button onclick="playGame('Scissors')">Scissors</button>
+    <button onclick="playGame('Rock')" class="move-button"><img src="images/Rock-emoji.png" class="move-icon" alt="rock-emoji"></button>
+    <button onclick="playGame('Paper')" class="move-button"><img src="images/Paper-emoji.png" class="move-icon" alt="paper-emoji"></button>
+    <button onclick="playGame('Scissors')" class="move-button"><img src="images/Scissors-emoji.png" class="move-icon" alt="scissors-emoji"></button>
 
-    <button onclick="resetScore()">Reset Score</button>
+    <p class="js-result result"></p>
 
-    <p id="result"></p>
+    <p class="js-move"></p>
 
     <h2>Score</h2>
-    <p>Wins: <span id="userWins">0</span></p>
-    <p>Losses: <span id="userLosses">0</span></p>
-    <p>Ties: <span id="ties">0</span></p>
+    <p class="js-score-board score"></p>
+
+    <button onclick="resetScore()" class="reset-button">Reset Score</button>
 
 
     <script src="index.js"></script>

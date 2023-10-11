@@ -8,10 +8,15 @@ if (!score) {
     };
 }
 
+function scoreBoard() {
+    document.querySelector(' .js-score-board').innerHTML = `Wins: ${score.userWins}, Losses: ${score.userLosses}, Ties: ${score.ties}`
+} 
+
 // Initialize the score display based on the loaded score
-document.getElementById('userWins').textContent = score.userWins;
-document.getElementById('userLosses').textContent = score.userLosses;
-document.getElementById('ties').textContent = score.ties;
+// document.getElementById('userWins').textContent = score.userWins;
+// document.getElementById('userLosses').textContent = score.userLosses;
+// document.getElementById('ties').textContent = score.ties;
+scoreBoard();
 
 const computerPicks = ["Rock", "Paper", "Scissors"];
 
@@ -46,12 +51,12 @@ function playGame(userChoice) {
     localStorage.setItem('score', JSON.stringify(score));
 
     // Display the result with an alert
-    alert(`You chose ${userChoice}, and the computer chose ${computerChoice}.\n\n${result}`);
+    document.querySelector(' .js-result').innerHTML = `${result}`
+    //document.querySelector(' .js-move').innerHTML = `You chose ${userChoice} <img src="images/${userChoice}-emoji.png" class="move-icon" alt="paper-emoji">, and the computer chose ${computerChoice} <img src="images/${computerChoice}-emoji.png" class="move-icon" alt="paper-emoji">`
+    document.querySelector(' .js-move').innerHTML = `You chose <img src="images/${userChoice}-emoji.png" class="move-icon" alt="paper-emoji">, and the computer chose <img src="images/${computerChoice}-emoji.png" class="move-icon" alt="paper-emoji">`
 
     // Update the score display
-    document.getElementById('userWins').textContent = score.userWins;
-    document.getElementById('userLosses').textContent = score.userLosses;
-    document.getElementById('ties').textContent = score.ties;
+    scoreBoard();
 }
 
 function resetScore() {
@@ -62,9 +67,7 @@ function resetScore() {
     localStorage.setItem('score', JSON.stringify(score));
 
     // Update the score display
-    document.getElementById('userWins').textContent = score.userWins;
-    document.getElementById('userLosses').textContent = score.userLosses;
-    document.getElementById('ties').textContent = score.ties;
+    scoreBoard();
 
     // Remove the score from localStorage
     localStorage.removeItem('score');
